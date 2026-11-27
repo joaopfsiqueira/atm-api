@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_11_27_033608) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_27_033754) do
+  create_table "bank_accounts", force: :cascade do |t|
+    t.integer "account_number", null: false
+    t.decimal "balance", default: "0.0", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_number"], name: "index_bank_accounts_on_account_number", unique: true
+  end
+
   create_table "bank_acounts", force: :cascade do |t|
     t.integer "account_number"
     t.decimal "balance"
